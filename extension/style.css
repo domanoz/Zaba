@@ -1,0 +1,18 @@
+.ui-tooltip-content 
+{
+    background-color:#fff; 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.ui-tooltip
+{
+    padding: 0px;
+}
+.ui-tooltip-content div
+{
+    padding-top: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

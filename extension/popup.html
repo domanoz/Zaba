@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<h1> Słownik Ząba </h1>
+<p>
+    Dodaj regułę do słownika:
+    <textarea id="to-replace"  placeholder="Słowo: "></textarea>
+    <textarea id="replacement"  placeholder="Poprawiaj na: "></textarea>
+</p>
+<p>
+    <button id="save">Zapisz</button>
+</p>
+<p>
+    <button id="showWorkingDictBtn">Pokaż słownik roboczy</button>
+</p>
+<p>
+    <button id="showMainDictBtn">Pokaż słownik główny</button>
+</p>
+<p>
+    <label class="switch">
+        <input id="switch" type="checkbox">
+        <span class="slider round"></span>
+    </label>
+</p>
+<script src="popup.js"></script>
+</body>
+</html>
