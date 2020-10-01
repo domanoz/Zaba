@@ -69,9 +69,22 @@ function readDictionary(onComplete) {
 function getSuggestedResolutions(word) {
   if (workingDictionary[word] !== undefined) {
     console.log("Word " + word + " found in working dictionary");
-    return workingDictionary[word].map(function (word) {
-      return { word: word, distance: 0 };
-    });
+    resultList = [];
+    if (workingDictionary[word].indexOf("/") > -1) {
+      str = workingDictionary[word].split("/");
+    } else {
+      str = workingDictionary[word];
+    }
+
+    for (let element of str) {
+      resultList.push(element);
+    }
+
+    toReturn = [];
+    for (let element of resultList) {
+      toReturn.push({ word: element, distance: 0 });
+    }
+    return toReturn;
   } else if (word.match(wordRegex)) {
     const resultList = [];
 
@@ -111,7 +124,11 @@ function addToDictionary(toReplace, replacement) {
     isWordCorrectWithAlert(toReplace) &&
     isWordCorrectWithAlert(replacement)
   ) {
-    workingDictionary[toReplace] = [replacement];
+    if (workingDictionary[toReplace] == undefined)
+      workingDictionary[toReplace] = [replacement];
+    else
+      workingDictionary[toReplace] =
+        workingDictionary[toReplace] + "/" + [replacement];
   }
   updateSerializedDictionary();
 }
